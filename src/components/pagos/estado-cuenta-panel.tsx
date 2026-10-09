@@ -3,12 +3,11 @@ import Image from "next/image";
 import { ProgresoComercial } from "@/components/pagos/progreso-comercial";
 import { TablaCuotas } from "@/components/pagos/tabla-cuotas";
 import { TarjetasPago } from "@/components/pagos/tarjetas-pago";
-import { BotonVerRecibo } from "@/components/pagos/visor-recibo";
 import { EstadoBadge } from "@/components/ui/estado-badge";
 import { tarjeta } from "@/components/ui/estilos";
 import { etiquetaModalidad } from "@/domain/etiquetas";
 import type { EstadoCuenta } from "@/services/contracts";
-import { formatArea, formatCOP, formatFecha } from "@/lib/format";
+import { formatArea, formatCOP } from "@/lib/format";
 
 export function EstadoCuentaPanel({ estado }: { estado: EstadoCuenta }) {
   const descripcion =
@@ -76,31 +75,6 @@ export function EstadoCuentaPanel({ estado }: { estado: EstadoCuenta }) {
           lote={estado.compra.lote}
         />
       ) : null}
-
-      <section className={`${tarjeta} mt-6 p-5`}>
-        <h3 className="text-lg font-bold text-ink">Pagos registrados</h3>
-        {estado.pagosRegistrados.length === 0 ? (
-          <p className="mt-2 text-sm text-muted">Todavía no hay pagos registrados en esta compra.</p>
-        ) : (
-          <ul className="mt-3 divide-y divide-line">
-            {estado.pagosRegistrados.map((pago) => (
-              <li key={pago.id} className="flex flex-wrap items-center justify-between gap-3 py-3 text-sm">
-                <span className="font-semibold text-ink">{pago.concepto}</span>
-                <span className="text-muted">{formatFecha(pago.fecha) ?? "Fecha no disponible"}</span>
-                <span className="font-bold text-ink">{formatCOP(pago.valor)}</span>
-                <BotonVerRecibo
-                  concepto={pago.concepto}
-                  referencia={estado.compra.referencia}
-                  proyecto={estado.compra.proyecto}
-                  lote={estado.compra.lote}
-                  valorPagado={pago.valor}
-                  fechaPago={pago.fecha}
-                />
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
     </div>
   );
 }

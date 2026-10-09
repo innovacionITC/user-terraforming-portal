@@ -1,4 +1,4 @@
-import { DetalleScreen } from "@/app/(portal)/mis-compras/[id]/detalle-screen";
+import { DetalleScreen } from "@/app/(portal)/mis-lotes/[id]/detalle-screen";
 
 export const metadata = { title: "Detalle de compra" };
 

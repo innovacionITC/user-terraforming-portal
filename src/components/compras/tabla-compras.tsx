@@ -19,7 +19,7 @@ export function TablaCompras({
   if (compras.length === 0) {
     return (
       <div className={`${tarjeta} px-6 py-12 text-center`}>
-        <p className="text-base font-semibold text-ink">No tienes compras registradas actualmente</p>
+        <p className="text-base font-semibold text-ink">No tienes lotes registrados actualmente</p>
       </div>
     );
   }
@@ -54,7 +54,7 @@ export function TablaCompras({
                   {mostrarModalidad ? <td className="px-4 py-4">{etiquetaModalidad[compra.modalidad]}</td> : null}
                   <td className="px-4 py-4">
                     <div className="flex flex-wrap gap-2">
-                      <Link href={`/mis-compras/${compra.id}`} className={botonSecundario}>
+                      <Link href={`/mis-lotes/${compra.id}`} className={botonSecundario}>
                         Ver detalle <ChevronRight className="h-4 w-4" aria-hidden="true" />
                       </Link>
                       {mostrarEstadoCuenta ? (
@@ -98,7 +98,7 @@ export function TablaCompras({
               ) : null}
             </dl>
             <div className="mt-4 flex flex-col gap-2">
-              <Link href={`/mis-compras/${compra.id}`} className={botonSecundario}>
+              <Link href={`/mis-lotes/${compra.id}`} className={botonSecundario}>
                 Ver detalle
               </Link>
               {mostrarEstadoCuenta ? (

@@ -9,11 +9,11 @@ export function ResumenCompras({ compras }: { compras: CompraListado[] }) {
     <section className="mt-8">
       <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h2 className="text-lg font-bold text-ink">Mis compras</h2>
+          <h2 className="text-lg font-bold text-ink">Mis lotes</h2>
           <p className="text-sm text-muted">Aquí puedes ver el resumen de tus oportunidades o compras.</p>
         </div>
-        <Link href="/mis-compras" className="text-sm font-semibold text-terra-700 hover:underline">
-          Ver todas mis compras
+        <Link href="/mis-lotes" className="text-sm font-semibold text-terra-700 hover:underline">
+          Ver todos mis lotes
         </Link>
       </div>
       <div className={tarjeta}>

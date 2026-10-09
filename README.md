@@ -69,6 +69,12 @@ Estas credenciales solo aparecen aquí. No se muestran en la pantalla de acceso.
 
 `Mis pagos` abre el estado de cuenta. No hay un segundo módulo financiero.
 
+En el detalle de cada pago aparecen dos acciones de interfaz que todavía no tienen canal externo:
+
+- **Pagar con PSE** abre el valor pendiente. No debita dinero ni cambia el saldo.
+- **Ver recibo** muestra el comprobante de un pago ya registrado.
+- El botón flotante **Soporte** abre el chat. Los mensajes no se envían a un asesor.
+
 ## Cómo está organizado
 
 ```text

@@ -1,5 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
+export const runtime = "nodejs";
+
 import { SESSION_COOKIE, verifySessionToken } from "@/lib/session";
 
 export async function middleware(request: NextRequest) {

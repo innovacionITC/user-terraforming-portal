@@ -31,9 +31,9 @@ export function DetalleScreen({ compraId }: { compraId: string }) {
 function Detalle({ compra }: { compra: CompraDetalle }) {
   return (
     <div>
-      <Link href="/mis-compras" className={`${botonSecundario} mb-4`}>
+      <Link href="/mis-lotes" className={`${botonSecundario} mb-4`}>
         <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-        Volver a mis compras
+        Volver a mis lotes
       </Link>
       <article className={`${tarjeta} overflow-hidden`}>
         <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">

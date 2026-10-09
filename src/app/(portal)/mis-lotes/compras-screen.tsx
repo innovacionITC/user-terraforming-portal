@@ -37,12 +37,12 @@ export function ComprasScreen() {
     <div>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight text-ink">Mis compras</h1>
-          <p className="mt-1 max-w-2xl text-sm text-muted">Consulta las compras asociadas a tu cuenta y abre el detalle de cada negociación.</p>
+          <h1 className="text-3xl font-extrabold tracking-tight text-ink">Mis lotes</h1>
+          <p className="mt-1 max-w-2xl text-sm text-muted">Consulta los lotes asociados a tu cuenta y abre el detalle de cada negociación.</p>
         </div>
         {consulta.data ? (
           <p className="rounded-full bg-white px-3 py-1 text-sm font-semibold text-terra-800 ring-1 ring-line">
-            {textoCantidad(consulta.data.items.length, "compra", "compras")}
+            {textoCantidad(consulta.data.items.length, "lote", "lotes")}
           </p>
         ) : null}
       </div>
@@ -55,8 +55,8 @@ export function ComprasScreen() {
       >
         {vacio ? (
           <div className={`${tarjeta} mt-6 px-6 py-14 text-center`}>
-            <p className="text-base font-semibold text-ink">No tienes compras registradas actualmente</p>
-            <p className="mx-auto mt-2 max-w-md text-sm text-muted">Cuando exista un proceso asociado a tu cuenta, aparecerá en este listado.</p>
+            <p className="text-base font-semibold text-ink">No tienes lotes registrados actualmente</p>
+            <p className="mx-auto mt-2 max-w-md text-sm text-muted">Cuando exista un lote asociado a tu cuenta, aparecerá en este listado.</p>
           </div>
         ) : (
           <div className={`${tarjeta} mt-6`}>
@@ -94,7 +94,7 @@ export function ComprasScreen() {
               </label>
             </div>
             {filtradas.length === 0 ? (
-              <p className="px-6 py-12 text-center text-sm font-medium text-ink">No hay compras que coincidan con tu búsqueda.</p>
+              <p className="px-6 py-12 text-center text-sm font-medium text-ink">No hay lotes que coincidan con tu búsqueda.</p>
             ) : (
               <>
                 <div className="p-4 md:p-0">

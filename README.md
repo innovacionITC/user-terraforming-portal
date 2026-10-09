@@ -61,8 +61,8 @@ Estas credenciales solo aparecen aquí. No se muestran en la pantalla de acceso.
 ```text
 /login
 /inicio
-/mis-compras
-/mis-compras/[id]
+/mis-lotes
+/mis-lotes/[id]
 /mis-pagos
 /mis-pagos/[id]
 ```

@@ -45,7 +45,7 @@ export function PantallaEstadoCuenta({ compraId }: { compraId?: string }) {
       >
         {lista.length === 0 ? (
           <div className={`${tarjeta} px-6 py-16 text-center`}>
-            <p className="text-base font-semibold text-ink">No tienes compras registradas actualmente</p>
+            <p className="text-base font-semibold text-ink">No tienes lotes registrados actualmente</p>
             <p className="mx-auto mt-2 max-w-md text-sm text-muted">Cuando exista un proceso asociado a tu cuenta, podrás consultar aquí su estado de cuenta.</p>
           </div>
         ) : (

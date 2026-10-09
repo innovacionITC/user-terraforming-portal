@@ -24,8 +24,8 @@ export const config = {
   matcher: [
     "/inicio",
     "/inicio/:path*",
-    "/mis-compras",
-    "/mis-compras/:path*",
+    "/mis-lotes",
+    "/mis-lotes/:path*",
     "/mis-pagos",
     "/mis-pagos/:path*",
     "/api/cliente/:path*",

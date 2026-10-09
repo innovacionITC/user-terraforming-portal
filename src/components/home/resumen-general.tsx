@@ -8,7 +8,7 @@ import { textoCantidad } from "@/lib/lista";
 export function ResumenGeneral({ resumen }: { resumen: ResumenFinanciero }) {
   const tarjetas = [
     {
-      titulo: "Mis compras",
+      titulo: "Mis lotes",
       valor: String(resumen.cantidadCompras),
       detalle: resumen.cantidadCompras === 1 ? "oportunidad" : "oportunidades",
       icono: Home,

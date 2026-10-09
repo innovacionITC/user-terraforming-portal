@@ -13,7 +13,7 @@ import type { ClientePublico } from "@/services/contracts";
 
 const enlaces = [
   { href: "/inicio", etiqueta: "Inicio", icono: Home },
-  { href: "/mis-compras", etiqueta: "Mis compras", icono: Building2 },
+  { href: "/mis-lotes", etiqueta: "Mis lotes", icono: Building2 },
   { href: "/mis-pagos", etiqueta: "Mis pagos", icono: Wallet },
 ];
 
@@ -33,7 +33,7 @@ export function Header({
 
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center gap-3 px-4 sm:px-6 lg:px-8">
         <TerraLogo href="/inicio" />
         <nav className="ml-4 hidden items-center gap-1 md:flex" aria-label="Principal">
           {enlaces.map((enlace) => {
@@ -44,7 +44,7 @@ export function Header({
                 key={enlace.href}
                 href={enlace.href}
                 aria-current={seleccionado ? "page" : undefined}
-                className={`relative inline-flex h-16 items-center gap-2 px-3 text-sm font-semibold transition ${
+                className={`relative inline-flex h-20 items-center gap-2 px-3 text-sm font-semibold transition ${
                   seleccionado ? "text-terra-700" : "text-muted hover:text-ink"
                 }`}
               >

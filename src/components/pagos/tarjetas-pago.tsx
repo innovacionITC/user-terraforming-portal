@@ -1,5 +1,7 @@
 import { FileText, HandCoins, Layers } from "lucide-react";
 
+import { BotonPagoPse } from "@/components/pagos/pago-pse";
+import { BotonVerRecibo } from "@/components/pagos/visor-recibo";
 import { EstadoBadge } from "@/components/ui/estado-badge";
 import { tarjeta } from "@/components/ui/estilos";
 import type { EstadoCuenta } from "@/services/contracts";
@@ -8,11 +10,16 @@ import { formatCOP, formatFecha } from "@/lib/format";
 
 export function TarjetasPago({ estado }: { estado: EstadoCuenta }) {
   const conPlan = estado.financiacion.tipo === "con_hitos";
+  const contexto = {
+    referencia: estado.compra.referencia,
+    proyecto: estado.compra.proyecto,
+    lote: estado.compra.lote,
+  };
   return (
     <div className={`grid gap-4 md:grid-cols-2 ${conPlan || estado.financiacion.tipo === "sin_hitos" ? "xl:grid-cols-3" : ""}`}>
-      <TarjetaConcepto titulo="Pago de separación" icono={<HandCoins className="h-5 w-5" />} obligacion={estado.separacion} />
+      <TarjetaConcepto titulo="Pago de separación" icono={<HandCoins className="h-5 w-5" />} obligacion={estado.separacion} {...contexto} />
       {estado.cuotaInicial ? (
-        <TarjetaConcepto titulo="Cuota inicial" icono={<Layers className="h-5 w-5" />} obligacion={estado.cuotaInicial} />
+        <TarjetaConcepto titulo="Cuota inicial" icono={<Layers className="h-5 w-5" />} obligacion={estado.cuotaInicial} {...contexto} />
       ) : null}
       {estado.financiacion.tipo === "con_hitos" ? <TarjetaPlan plan={estado.financiacion.plan} /> : null}
       {estado.financiacion.tipo === "sin_hitos" ? <TarjetaSinHitos saldo={estado.financiacion.saldoComprometido} /> : null}
@@ -20,7 +27,21 @@ export function TarjetasPago({ estado }: { estado: EstadoCuenta }) {
   );
 }
 
-function TarjetaConcepto({ titulo, icono, obligacion }: { titulo: string; icono: React.ReactNode; obligacion: ObligacionVista }) {
+function TarjetaConcepto({
+  titulo,
+  icono,
+  obligacion,
+  referencia,
+  proyecto,
+  lote,
+}: {
+  titulo: string;
+  icono: React.ReactNode;
+  obligacion: ObligacionVista;
+  referencia: string;
+  proyecto: string;
+  lote: string;
+}) {
   const fechaPago = formatFecha(obligacion.fechaPago);
   const fechaPrevista = formatFecha(obligacion.fechaPrevista);
   return (
@@ -52,6 +73,17 @@ function TarjetaConcepto({ titulo, icono, obligacion }: { titulo: string; icono:
           </div>
         ) : null}
       </dl>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <BotonPagoPse concepto={titulo} referencia={referencia} saldoPendiente={obligacion.saldoPendiente} />
+        <BotonVerRecibo
+          concepto={titulo}
+          referencia={referencia}
+          proyecto={proyecto}
+          lote={lote}
+          valorPagado={obligacion.valorPagado}
+          fechaPago={obligacion.fechaPago}
+        />
+      </div>
     </article>
   );
 }
